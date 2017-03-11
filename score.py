@@ -1,5 +1,6 @@
 from flask import Flask
 import urllib2
+import os
 from bs4 import BeautifulSoup
 from HTMLParser import HTMLParser
 
@@ -19,4 +20,8 @@ if "W" not in score:
 @app.route('/')
 def hello_world():
     return outcome
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
     
